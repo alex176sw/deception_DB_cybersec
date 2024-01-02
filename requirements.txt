@@ -1,0 +1,4 @@
+llama_cpp_python==0.2.20
+psycopg2-binary==2.9.9
+loguru
+pyaml
