@@ -1,0 +1,775 @@
+# role, database and user names can not start with a number and must be lowercase. 
+
+dbs:
+  - name: pe_1
+    owner: j1
+    grant_read_access_to:
+      - promotion
+      - j1_chief
+      - employees
+    grant_write_access_to:
+      - promotion
+      - employees
+    grant_update_access_to:
+      - promotion
+      - employees
+    grant_delete_access_to:
+      - promotion
+      - employees
+    schemas:
+      - name: personnel
+        subject: human resources 
+        number_of_tables: 3
+      - name: employees
+        subject: personal data 
+        number_of_tables: 3
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: w_1
+    owner: j1
+    grant_read_access_to:
+      - welfare
+      - j1_chief
+    grant_write_access_to:
+      - welfare
+    grant_update_access_to:
+      - welfare
+    grant_delete_access_to:
+      - welfare
+
+    schemas:
+      - name: commercial
+        subject: local discounts for employees
+        number_of_tables: 3
+      - name: taxes
+        subject: tax consultancy
+        number_of_tables: 3
+
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: ga_1
+    owner: j1
+    grant_read_access_to:
+      - general_affairs
+      - j1_chief
+    grant_write_access_to:
+      - general_affairs
+    grant_update_access_to:
+      - general_affairs
+    grant_delete_access_to:
+      - general_affairs
+    schemas:
+      - name: general
+        subject: political affairs
+        number_of_tables: 3
+      - name: affairs
+        subject: executive secretary
+        number_of_tables: 3
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: access_1
+    owner: j2
+    grant_read_access_to:
+      - access
+      - j2_chief
+    grant_write_access_to:
+      - access
+    grant_update_access_to:
+      - access
+    grant_delete_access_to:
+      - access
+    schemas:
+      - name: access_garrison
+        subject: personal data 
+        number_of_tables: 2
+      - name: access_closed
+        subject: personal data
+        number_of_tables: 1
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: targeting_1
+    owner: j2
+    grant_read_access_to:
+      - targeting
+    grant_write_access_to:
+      - targeting
+    grant_update_access_to:
+      - targeting
+    grant_delete_access_to:
+      - targeting
+    schemas:
+      - name: target_p
+        subject: personal data
+        number_of_tables: 4
+      - name: target_hvt
+        subject: personal data
+        number_of_tables: 2
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+
+  - name: licences_1
+    owner: j2
+    grant_read_access_to:
+      - licences
+      - j2_chief
+    grant_write_access_to:
+      - licences
+    grant_update_access_to:
+      - licenses
+    grant_delete_access_to:
+      - licenses
+    schemas:
+      - name: licenses
+        subject: judicial data grid
+        number_of_tables: 2
+      - name: r_licenses
+        subject: personal data
+        number_of_tables: 2
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: ops_1
+    owner: j3
+    grant_read_access_to:
+      - ops
+      - j3_chief
+      - j5_chief
+    grant_write_access_to:
+      - ops
+      - j3_chief
+    grant_update_access_to:
+      - ops
+      - j3_chief
+    grant_delete_access_to:
+      - ops
+    schemas:
+      - name: ops_og
+        subject: professional daily activities
+        number_of_tables: 3
+      - name: ops_f
+        subject: professional future activities
+        number_of_tables: 2
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: training
+    owner: j3
+    grant_read_access_to:
+      - training
+      - ops
+      - j3_chief
+      - j5_chief
+    grant_write_access_to:
+      - training
+    grant_update_access_to:
+      - training
+    grant_delete_access_to:
+      - training
+    schemas:
+      - name: trn_q
+        subject: training activities plan
+        number_of_tables: 4
+      - name: trn_lt
+        subject: training actitities plan
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: plan_24_1
+    owner: j3
+    grant_read_access_to:
+      - plan_24
+      - ops
+      - j3_chief
+    grant_write_access_to:
+      - plan_24
+      - ops
+      - j3_chief
+    grant_update_access_to:
+      - plan_24
+      - ops
+      - j3_chief
+    grant_delete_access_to:
+      - plan_24
+    schemas:
+      - name: plan_24_r
+        subject: training and working activities
+        number_of_tables: 6
+      - name: plan_24_f
+        subject: training activities
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: plan_48_1
+    owner: j3
+    grant_read_access_to:
+      - plan_48
+      - plan_24
+      - j3_chief
+    grant_write_access_to:
+      - plan_48
+      - plan_24
+      - j3_chief
+    grant_update_access_to:
+      - plan_48
+      - plan_24
+      - ops
+      - j3_chief
+    grant_delete_access_to:
+      - plan_48
+    schemas:
+      - name: plan_48_r
+        subject: planning and training activities
+        number_of_tables: 6
+      - name: plan_48_f
+        subject: planning activities
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: week_plan_1
+    owner: j3
+    grant_read_access_to:
+      - week_plan
+      - plan_48
+      - ops
+      - j3_chief
+    grant_write_access_to:
+      - week_plan
+      - plan_48
+      - j3_chief
+    grant_update_access_to:
+      - week_plan
+      - plan_48
+      - j3_chief
+    grant_delete_access_to:
+      - week_plan
+    schemas:
+      - name: week_plan_r
+        subject: working activities
+        number_of_tables: 6
+      - name: week_plan_fv
+        subject: working activities
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: move_1
+    owner: j4
+    grant_read_access_to:
+      - move
+      - j4_chief
+    grant_write_access_to:
+      - move
+    grant_update_access_to:
+      - move
+    grant_delete_access_to:
+      - move
+    schemas:
+      - name: move_w
+        subject: transportation plan
+        number_of_tables: 6
+      - name: move_lt
+        subject: transportation plan
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: med_1
+    owner: j4
+    grant_read_access_to:
+      - med
+      - j1_chief
+      - j4_chief
+    grant_write_access_to:
+      - med
+    grant_update_access_to:
+      - med
+    grant_delete_access_to:
+      - med
+    schemas:
+      - name: med_w
+        subject: medical activity plan
+        number_of_tables: 6
+      - name: med_lt
+        subject: medical activity vaccinationation plan
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: maint_1
+    owner: j4
+    grant_read_access_to:
+      - maint
+      - j4_chief
+    grant_write_access_to:
+      - maint
+    grant_update_access_to:
+      - maint
+    grant_delete_access_to:
+      - maint
+    schemas:
+      - name: maint_w
+        subject: vehicle maintenance plan 
+        number_of_tables: 6
+      - name: maint_d
+        subject: truck and craine maintenance plan
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: supply_1
+    owner: j4
+    grant_read_access_to:
+      - supply
+      - j4_chief
+    grant_write_access_to:
+      - supply
+    grant_update_access_to:
+      - supply
+    grant_delete_access_to:
+      - supply
+    schemas:
+      - name: supply_w
+        subject: supply transportation plan
+        number_of_tables: 6
+      - name: supply_lt
+        subject: supply distribution plan
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: w_n_a_1
+    owner: j4
+    grant_read_access_to:
+      - w_n_a
+      - j4_chief
+    grant_write_access_to:
+      - w_n_a
+    grant_update_access_to:
+      - w_n_a
+    grant_delete_access_to:
+      - w_n_a
+    schemas:
+      - name: w_n_a_w
+        subject: weapons and ammunition storage plan
+        number_of_tables: 6
+      - name: w_n_a_lt
+        subject: weapon and ammunition storage areas
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: storage_1
+    owner: j4
+    grant_read_access_to:
+      - storage
+      - j4_chief
+    grant_write_access_to:
+      - storage
+    grant_update_access_to:
+      - storage
+    grant_delete_access_to:
+      - storage
+    schemas:
+      - name: storage_w
+        subject: warehouse management
+        number_of_tables: 2
+      - name: storage_lt
+        subject: warehouse management plan
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: r_n_d_1
+    owner: j5
+    grant_read_access_to:
+      - r_n_d
+      - j5_chief
+    grant_write_access_to:
+      - r_n_d
+      - j5_chief
+    grant_update_access_to:
+      - r_n_d
+      - j5_chief
+    grant_delete_access_to:
+      - r_n_d
+    schemas:
+      - name: r_n_d_w
+        subject: research on new materials
+        number_of_tables: 6
+      - name: r_n_d_lt
+        subject: development of new materials
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: long_term_view_1
+    owner: j5
+    grant_read_access_to:
+      - long_term_view
+      - plan_5_years
+      - j5_chief
+    grant_write_access_to:
+      - long_term_view
+      - j5_chief
+    grant_update_access_to:
+      - long_term_view
+      - j5_chief
+    grant_delete_access_to:
+      - long_term_view
+    schemas:
+      - name: long_term_view_lt
+        subject: long term activities
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: plan_3_years_1
+    owner: j5
+    grant_read_access_to:
+      - plan_3_years
+      - plan_5_years
+      - j35
+      - j5_chief
+    grant_write_access_to:
+      - plan_3_years
+      - j5_chief
+    grant_update_access_to:
+      - plan_3_years
+      - j5_chief
+    grant_delete_access_to:
+      - plan_3_years
+    schemas:
+      - name: plan_3_years
+        subject: long term activities
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: plan_5_years_1
+    owner: j5
+    grant_read_access_to:
+      - plan_5_years
+      - long_term_view
+      - plan_3_years
+      - j5_chief
+    grant_write_access_to:
+      - plan_5_years
+      - j5_chief
+    grant_update_access_to:
+      - plan_3_years
+      - j5_chief
+    grant_delete_access_to:
+      - plan_3_years
+    schemas:
+      - name: plan_3_years
+        subject: long term actitities
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: j35_1
+    owner: j5
+    grant_read_access_to:
+      - j35
+      - plan_5_years
+      - plan_3_years
+      - j5_chief
+    grant_write_access_to:
+      - j35
+    grant_update_access_to:
+      - j35
+    grant_delete_access_to:
+      - j35
+    schemas:
+      - name: j35_p
+        subject: long term activities
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: helpdesk_1
+    owner: j6
+    grant_read_access_to:
+      - helpdesk
+      - j6_chief
+    grant_write_access_to:
+      - helpdesk
+    grant_update_access_to:
+      - helpdesk
+    grant_delete_access_to:
+      - helpdesk
+    schemas:
+      - name: helpdesk_w
+        subject: helpdesk data
+        number_of_tables: 6
+      - name: helpdesk_lt
+        subject: technical and personal data
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: doc_rules_1
+    owner: j6
+    grant_read_access_to:
+      - doc_rules
+      - j6_chief
+    grant_write_access_to:
+      - doc_rules
+    grant_update_access_to:
+      - doc_rules
+    grant_delete_access_to:
+      - doc_rules
+    schemas:
+      - name: doc_rules_w
+        subject: technical office constraints
+        number_of_tables: 6
+      - name: doc_rules_lt
+        subject: rule for IT office
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+
+  - name: com_plan_1
+    owner: j6
+    grant_read_access_to:
+      - com_plan
+      - j6_chief
+    grant_write_access_to:
+      - com_plan
+      - j6_chief
+    grant_update_access_to:
+      - com_plan
+      - j6_chief
+    grant_delete_access_to:
+      - com_plan
+    schemas:
+      - name: com_plan_w
+        subject: communication rules
+        number_of_tables: 6
+      - name: doc_rules_lt
+        subject: radio distribution plan  
+        number_of_tables: 6
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+
+  - name: post_office_1
+    owner: j6
+    grant_read_access_to:
+      - post_office
+      - j6_chief
+      - j1_chief
+    grant_write_access_to:
+      - post_office
+    grant_update_access_to:
+      - post_office
+    grant_delete_access_to:
+      - post_office
+    schemas:
+      - name: post_office_n
+        subject: addresses
+        number_of_tables: 1
+      - name: post_office
+        subject: addresses  
+        number_of_tables: 1
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: transmission_1
+    owner: j6
+    grant_read_access_to:
+      - transmission
+      - j6_chief
+    grant_write_access_to:
+      - transmission
+    grant_update_access_to:
+      - transmission
+    grant_delete_access_to:
+      - transmission
+    schemas:
+      - name: transmission_n
+        subject: addresses
+        number_of_tables: 1
+      - name: transmission_o
+        subject: addresses
+        number_of_tables: 1
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+
+  - name: plan_ow_1
+    owner: j7
+    grant_read_access_to:
+      - plan_ow
+      - j7_chief
+      - j5_chief
+    grant_write_access_to:
+      - plan_ow
+    grant_update_access_to:
+      - plan_ow
+    grant_delete_access_to:
+      - plan_ow
+    schemas:
+      - name: plan_ow_n
+        subject: long term activities
+        number_of_tables: 1
+      - name: plan_ow_lt
+        subject: long term activities  
+        number_of_tables: 1
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: international_relation_1
+    owner: j7
+    grant_read_access_to:
+      - international_relation
+      - j7_chief
+      - j5_chief
+    grant_write_access_to:
+      - international_relation
+    grant_update_access_to:
+      - international_relation
+    grant_delete_access_to:
+      - international_relation
+    schemas:
+      - name: international_relation_n
+        subject: personal data and special data
+        number_of_tables: 1
+      - name: international_relation
+        subject: personal data and special data
+        number_of_tables: 1
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+  - name: procurement_office_1
+    owner: j8
+    grant_read_access_to:
+      - procurement_office
+      - j8_chief
+      - j4_chief
+    grant_write_access_to:
+      - procurement_office
+    grant_update_access_to:
+      - procurement_office
+    grant_delete_access_to:
+      - procurement_office
+    schemas:
+      - name: procurement_office_n
+        subject: procurement commercial data
+        number_of_tables: 1
+      - name: procurement_office_o
+        subject: procurement commercial data
+        number_of_tables: 1
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+
+  - name: plan_ad_1
+    owner: j8
+    grant_read_access_to:
+      - plan_ad
+      - j8_chief
+    grant_write_access_to:
+      - plan_ad
+      - j8_chief
+    grant_update_access_to:
+      - plan_ad
+    grant_delete_access_to:
+      - plan_ad
+    schemas:
+      - name: plan_ad_s
+        subject: pay slip data
+        number_of_tables: 1
+      - name: plan_ad_b
+        subject: billing data
+        number_of_tables: 1
+    connections:
+      - local
+      - hostnossl
+    auth: md5
+
+

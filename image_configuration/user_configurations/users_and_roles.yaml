@@ -1,0 +1,246 @@
+# Only super roles (j*) will have the CREATEDB permission
+# role, database and user names can not start with a number and must be lowercase. 
+
+roles:
+  j1:
+    - promotion
+    - employees
+    - welfare
+    - general_affairs
+  j2:
+    - access
+    - targeting
+    - licenses
+    - doc_mgt
+    - licences
+  j3:
+    - ops
+    - training
+    - plan_24
+    - plan_48
+    - week_plan
+    - options
+  j4:
+    - move
+    - med
+    - maint
+    - supply
+    - w_n_a
+    - storage
+  j5:
+    - r_n_d
+    - long_term_view
+    - plan_3_years
+    - plan_5_years
+    - j35
+  j6:
+    - helpdesk
+    - doc_rules
+    - com_plan
+    - post_office
+    - transmission
+  j7:
+    - plan_ow
+    - international_relation
+  j8:
+    - procurement_office
+    - plan_ad
+
+
+# users will have the LOGIN and PASSWORD options
+# and will inherit the "role" privileges
+users:
+  - name: j1_chief
+    role: j1
+    password: user_chief_j1
+
+  - name: j1_user_1
+    role: promotion
+    password: user_1
+
+  - name: j1_user_2
+    role: promotion
+    password: user_2
+
+  - name: j1_user_3
+    role: welfare
+    password: user_1
+
+  - name: j1_user_4
+    role: general_affairs
+    password: user_2
+
+  - name: j1_user_5
+    role: general_affairs
+    password: user_2
+
+  - name: j1_user_6
+    role: general_affairs
+    password: user_2
+
+  - name: j2_chief
+    role: j2
+    password: qawsc
+
+  - name: j2_user_1
+    role: access
+    password: qawsa
+
+  - name: j2_user_2
+    role: access
+    password: qawsa
+
+  - name: j2_user_3
+    role: targeting
+    password: qawst
+
+  - name: j2_user_4
+    role: licenses
+    password: qawsl
+
+  - name: j2_user_5
+    role: doc_mgt
+    password: qawsd
+
+  - name: j2_user_6
+    role: doc_mgt
+    password: qawsd
+
+  - name: j3_chief
+    role: j3
+    password: user_chief_j3
+
+  - name: j3_user_1
+    role: ops
+    password: user_1
+
+  - name: j3_user_2
+    role: training
+    password: user_1
+
+  - name: j3_user_3
+    role: plan_24
+    password: user_1
+
+  - name: j3_user_4
+    role: plan_48
+    password: user_1
+
+  - name: j3_user_5
+    role: week_plan
+    password: user_1
+
+  - name: j3_user_6
+    role: options
+    password: user_2
+
+  - name: j4_chief
+    role: j4
+    password: user_chief_j4
+
+  - name: j4_user_1
+    role: move
+    password: user_1
+
+  - name: j4_user_2
+    role: med
+    password: user_1
+
+  - name: j4_user_3
+    role: maint
+    password: user_1
+
+  - name: j4_user_4
+    role: supply
+    password: user_1
+
+  - name: j4_user_5
+    role: w_n_a
+    password: user_1
+
+  - name: j4_user_6
+    role: storage
+    password: user_1
+
+  - name: j5_chief
+    role: j5
+    password: user_chief_j5
+
+  - name: j5_user_1
+    role: r_n_d
+    password: user_1
+
+  - name: j5_user_2
+    role: long_term_view
+    password: user_1
+
+  - name: j5_user_3
+    role: plan_3_years
+    password: user_1
+
+  - name: j5_user_4
+    role: plan_5_years
+    password: user_1
+
+  - name: j5_user_5
+    role: j35
+    password: user_1
+
+  - name: j5_user_6
+    role: j35
+    password: user_2
+
+  - name: j6_chief
+    role: j6
+    password: user_chief_j6
+
+  - name: j6_user_1
+    role: helpdesk
+    password: user_1
+
+  - name: j6_user_2
+    role: doc_rules
+    password: user_1
+
+  - name: j6_user_3
+    role: doc_rules
+    password: user_2
+
+  - name: j6_user_4
+    role: com_plan
+    password: user_1
+
+  - name: j6_user_5
+    role: post_office
+    password: user_1
+
+  - name: j6_user_6
+    role: transmission
+    password: user_1
+
+  - name: j7_chief
+    role: j7
+    password: user_chief_j7
+
+  - name: j7_user_1
+    role: plan_ow
+    password: user_1
+
+  - name: j7_user_2
+    role: international_relation
+    password: user_1
+
+  - name: j8_chief
+    role: j8
+    password: user_chief_j8
+
+  - name: j8_user_1
+    role: procurement_office
+    password: user_1 
+
+  - name: j8_user_3
+    role: plan_ad
+    password: user_1
+
+
+
