@@ -1,0 +1,48 @@
+#!/bin/bash
+set -e
+psql -v ON_ERROR_STOP=1 --username postgres --dbname com_plan_1  <<-EOSQL
+	GRANT SELECT ON ALL TABLES IN SCHEMA com_plan_w TO com_plan;
+	GRANT ALL ON SCHEMA com_plan_w TO j6;
+	GRANT SELECT ON ALL TABLES IN SCHEMA com_plan_w TO j6_chief;
+	GRANT ALL ON SCHEMA com_plan_w TO j6;
+	GRANT INSERT ON ALL TABLES IN SCHEMA com_plan_w TO com_plan;
+	GRANT ALL ON SCHEMA com_plan_w TO j6;
+	GRANT INSERT ON ALL TABLES IN SCHEMA com_plan_w TO j6_chief;
+	GRANT ALL ON SCHEMA com_plan_w TO j6;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA com_plan_w TO com_plan;
+	GRANT ALL ON SCHEMA com_plan_w TO j6;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA com_plan_w TO j6_chief;
+	GRANT ALL ON SCHEMA com_plan_w TO j6;
+	GRANT DELETE ON ALL TABLES IN SCHEMA com_plan_w TO com_plan;
+	GRANT ALL ON SCHEMA com_plan_w TO j6;
+	GRANT SELECT ON ALL TABLES IN SCHEMA doc_rules_lt TO com_plan;
+	GRANT ALL ON SCHEMA doc_rules_lt TO j6;
+	GRANT SELECT ON ALL TABLES IN SCHEMA doc_rules_lt TO j6_chief;
+	GRANT ALL ON SCHEMA doc_rules_lt TO j6;
+	GRANT INSERT ON ALL TABLES IN SCHEMA doc_rules_lt TO com_plan;
+	GRANT ALL ON SCHEMA doc_rules_lt TO j6;
+	GRANT INSERT ON ALL TABLES IN SCHEMA doc_rules_lt TO j6_chief;
+	GRANT ALL ON SCHEMA doc_rules_lt TO j6;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA doc_rules_lt TO com_plan;
+	GRANT ALL ON SCHEMA doc_rules_lt TO j6;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA doc_rules_lt TO j6_chief;
+	GRANT ALL ON SCHEMA doc_rules_lt TO j6;
+	GRANT DELETE ON ALL TABLES IN SCHEMA doc_rules_lt TO com_plan;
+	GRANT ALL ON SCHEMA doc_rules_lt TO j6;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO com_plan;
+	GRANT ALL ON SCHEMA public TO j6;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO j6_chief;
+	GRANT ALL ON SCHEMA public TO j6;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO com_plan;
+	GRANT ALL ON SCHEMA public TO j6;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO j6_chief;
+	GRANT ALL ON SCHEMA public TO j6;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO com_plan;
+	GRANT ALL ON SCHEMA public TO j6;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO j6_chief;
+	GRANT ALL ON SCHEMA public TO j6;
+	GRANT DELETE ON ALL TABLES IN SCHEMA public TO com_plan;
+	GRANT ALL ON SCHEMA public TO j6;
+
+EOSQL
+

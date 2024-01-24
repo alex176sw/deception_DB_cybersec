@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+psql -v ON_ERROR_STOP=1 --username postgres --dbname storage_1  <<-EOSQL
+	GRANT SELECT ON ALL TABLES IN SCHEMA storage_w TO storage;
+	GRANT ALL ON SCHEMA storage_w TO j4;
+	GRANT SELECT ON ALL TABLES IN SCHEMA storage_w TO j4_chief;
+	GRANT ALL ON SCHEMA storage_w TO j4;
+	GRANT INSERT ON ALL TABLES IN SCHEMA storage_w TO storage;
+	GRANT ALL ON SCHEMA storage_w TO j4;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA storage_w TO storage;
+	GRANT ALL ON SCHEMA storage_w TO j4;
+	GRANT DELETE ON ALL TABLES IN SCHEMA storage_w TO storage;
+	GRANT ALL ON SCHEMA storage_w TO j4;
+	GRANT SELECT ON ALL TABLES IN SCHEMA storage_lt TO storage;
+	GRANT ALL ON SCHEMA storage_lt TO j4;
+	GRANT SELECT ON ALL TABLES IN SCHEMA storage_lt TO j4_chief;
+	GRANT ALL ON SCHEMA storage_lt TO j4;
+	GRANT INSERT ON ALL TABLES IN SCHEMA storage_lt TO storage;
+	GRANT ALL ON SCHEMA storage_lt TO j4;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA storage_lt TO storage;
+	GRANT ALL ON SCHEMA storage_lt TO j4;
+	GRANT DELETE ON ALL TABLES IN SCHEMA storage_lt TO storage;
+	GRANT ALL ON SCHEMA storage_lt TO j4;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO storage;
+	GRANT ALL ON SCHEMA public TO j4;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO j4_chief;
+	GRANT ALL ON SCHEMA public TO j4;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO storage;
+	GRANT ALL ON SCHEMA public TO j4;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO storage;
+	GRANT ALL ON SCHEMA public TO j4;
+	GRANT DELETE ON ALL TABLES IN SCHEMA public TO storage;
+	GRANT ALL ON SCHEMA public TO j4;
+
+EOSQL
+

@@ -1,0 +1,42 @@
+#!/bin/bash
+set -e
+psql -v ON_ERROR_STOP=1 --username postgres --dbname plan_ow_1  <<-EOSQL
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_ow_n TO plan_ow;
+	GRANT ALL ON SCHEMA plan_ow_n TO j7;
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_ow_n TO j7_chief;
+	GRANT ALL ON SCHEMA plan_ow_n TO j7;
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_ow_n TO j5_chief;
+	GRANT ALL ON SCHEMA plan_ow_n TO j7;
+	GRANT INSERT ON ALL TABLES IN SCHEMA plan_ow_n TO plan_ow;
+	GRANT ALL ON SCHEMA plan_ow_n TO j7;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA plan_ow_n TO plan_ow;
+	GRANT ALL ON SCHEMA plan_ow_n TO j7;
+	GRANT DELETE ON ALL TABLES IN SCHEMA plan_ow_n TO plan_ow;
+	GRANT ALL ON SCHEMA plan_ow_n TO j7;
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_ow_lt TO plan_ow;
+	GRANT ALL ON SCHEMA plan_ow_lt TO j7;
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_ow_lt TO j7_chief;
+	GRANT ALL ON SCHEMA plan_ow_lt TO j7;
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_ow_lt TO j5_chief;
+	GRANT ALL ON SCHEMA plan_ow_lt TO j7;
+	GRANT INSERT ON ALL TABLES IN SCHEMA plan_ow_lt TO plan_ow;
+	GRANT ALL ON SCHEMA plan_ow_lt TO j7;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA plan_ow_lt TO plan_ow;
+	GRANT ALL ON SCHEMA plan_ow_lt TO j7;
+	GRANT DELETE ON ALL TABLES IN SCHEMA plan_ow_lt TO plan_ow;
+	GRANT ALL ON SCHEMA plan_ow_lt TO j7;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO plan_ow;
+	GRANT ALL ON SCHEMA public TO j7;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO j7_chief;
+	GRANT ALL ON SCHEMA public TO j7;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO j5_chief;
+	GRANT ALL ON SCHEMA public TO j7;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO plan_ow;
+	GRANT ALL ON SCHEMA public TO j7;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO plan_ow;
+	GRANT ALL ON SCHEMA public TO j7;
+	GRANT DELETE ON ALL TABLES IN SCHEMA public TO plan_ow;
+	GRANT ALL ON SCHEMA public TO j7;
+
+EOSQL
+

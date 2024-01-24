@@ -1,0 +1,42 @@
+#!/bin/bash
+set -e
+psql -v ON_ERROR_STOP=1 --username postgres --dbname plan_5_years_1  <<-EOSQL
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_3_years TO plan_5_years;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_3_years TO long_term_view;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_3_years TO plan_3_years;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT SELECT ON ALL TABLES IN SCHEMA plan_3_years TO j5_chief;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT INSERT ON ALL TABLES IN SCHEMA plan_3_years TO plan_5_years;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT INSERT ON ALL TABLES IN SCHEMA plan_3_years TO j5_chief;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA plan_3_years TO plan_3_years;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA plan_3_years TO j5_chief;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT DELETE ON ALL TABLES IN SCHEMA plan_3_years TO plan_3_years;
+	GRANT ALL ON SCHEMA plan_3_years TO j5;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO plan_5_years;
+	GRANT ALL ON SCHEMA public TO j5;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO long_term_view;
+	GRANT ALL ON SCHEMA public TO j5;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO plan_3_years;
+	GRANT ALL ON SCHEMA public TO j5;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO j5_chief;
+	GRANT ALL ON SCHEMA public TO j5;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO plan_5_years;
+	GRANT ALL ON SCHEMA public TO j5;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO j5_chief;
+	GRANT ALL ON SCHEMA public TO j5;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO plan_3_years;
+	GRANT ALL ON SCHEMA public TO j5;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO j5_chief;
+	GRANT ALL ON SCHEMA public TO j5;
+	GRANT DELETE ON ALL TABLES IN SCHEMA public TO plan_3_years;
+	GRANT ALL ON SCHEMA public TO j5;
+
+EOSQL
+
