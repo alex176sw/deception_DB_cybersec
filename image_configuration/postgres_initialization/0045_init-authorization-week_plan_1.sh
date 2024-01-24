@@ -1,0 +1,72 @@
+#!/bin/bash
+set -e
+psql -v ON_ERROR_STOP=1 --username postgres --dbname week_plan_1  <<-EOSQL
+	GRANT SELECT ON ALL TABLES IN SCHEMA week_plan_r TO week_plan;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA week_plan_r TO plan_48;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA week_plan_r TO ops;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA week_plan_r TO j3_chief;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA week_plan_r TO week_plan;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA week_plan_r TO plan_48;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA week_plan_r TO j3_chief;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA week_plan_r TO week_plan;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA week_plan_r TO plan_48;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA week_plan_r TO j3_chief;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT DELETE ON ALL TABLES IN SCHEMA week_plan_r TO week_plan;
+	GRANT ALL ON SCHEMA week_plan_r TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA week_plan_fv TO week_plan;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA week_plan_fv TO plan_48;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA week_plan_fv TO ops;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA week_plan_fv TO j3_chief;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA week_plan_fv TO week_plan;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA week_plan_fv TO plan_48;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA week_plan_fv TO j3_chief;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA week_plan_fv TO week_plan;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA week_plan_fv TO plan_48;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA week_plan_fv TO j3_chief;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT DELETE ON ALL TABLES IN SCHEMA week_plan_fv TO week_plan;
+	GRANT ALL ON SCHEMA week_plan_fv TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO week_plan;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO plan_48;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO ops;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO j3_chief;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO week_plan;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO plan_48;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO j3_chief;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO week_plan;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO plan_48;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO j3_chief;
+	GRANT ALL ON SCHEMA public TO j3;
+	GRANT DELETE ON ALL TABLES IN SCHEMA public TO week_plan;
+	GRANT ALL ON SCHEMA public TO j3;
+
+EOSQL
+

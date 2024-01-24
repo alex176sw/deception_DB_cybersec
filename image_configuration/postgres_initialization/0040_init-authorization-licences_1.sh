@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+psql -v ON_ERROR_STOP=1 --username postgres --dbname licences_1  <<-EOSQL
+	GRANT SELECT ON ALL TABLES IN SCHEMA licenses TO licences;
+	GRANT ALL ON SCHEMA licenses TO j2;
+	GRANT SELECT ON ALL TABLES IN SCHEMA licenses TO j2_chief;
+	GRANT ALL ON SCHEMA licenses TO j2;
+	GRANT INSERT ON ALL TABLES IN SCHEMA licenses TO licences;
+	GRANT ALL ON SCHEMA licenses TO j2;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA licenses TO licenses;
+	GRANT ALL ON SCHEMA licenses TO j2;
+	GRANT DELETE ON ALL TABLES IN SCHEMA licenses TO licenses;
+	GRANT ALL ON SCHEMA licenses TO j2;
+	GRANT SELECT ON ALL TABLES IN SCHEMA r_licenses TO licences;
+	GRANT ALL ON SCHEMA r_licenses TO j2;
+	GRANT SELECT ON ALL TABLES IN SCHEMA r_licenses TO j2_chief;
+	GRANT ALL ON SCHEMA r_licenses TO j2;
+	GRANT INSERT ON ALL TABLES IN SCHEMA r_licenses TO licences;
+	GRANT ALL ON SCHEMA r_licenses TO j2;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA r_licenses TO licenses;
+	GRANT ALL ON SCHEMA r_licenses TO j2;
+	GRANT DELETE ON ALL TABLES IN SCHEMA r_licenses TO licenses;
+	GRANT ALL ON SCHEMA r_licenses TO j2;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO licences;
+	GRANT ALL ON SCHEMA public TO j2;
+	GRANT SELECT ON ALL TABLES IN SCHEMA public TO j2_chief;
+	GRANT ALL ON SCHEMA public TO j2;
+	GRANT INSERT ON ALL TABLES IN SCHEMA public TO licences;
+	GRANT ALL ON SCHEMA public TO j2;
+	GRANT UPDATE ON ALL TABLES IN SCHEMA public TO licenses;
+	GRANT ALL ON SCHEMA public TO j2;
+	GRANT DELETE ON ALL TABLES IN SCHEMA public TO licenses;
+	GRANT ALL ON SCHEMA public TO j2;
+
+EOSQL
+
