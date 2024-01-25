@@ -24,7 +24,7 @@ def create_roles(config: dict, file_name_idx):
         for role in sub_roles:
             psql_cmd_string += f"\tCREATE ROLE {role} WITH LOGIN;\n"
     psql_cmd_string += close_psql_query()
-    with open(f"{POSTGRES_SCRIPTS_PATH}/{file_name_idx}_init-roles.sh", "w") as f:
+    with open(f"{POSTGRES_SCRIPTS_PATH}/{str(file_name_idx).zfill(4)}_init-roles.sh", "w") as f:
         f.write(psql_cmd_string)
     print("Write role scripts")
 
@@ -35,7 +35,7 @@ def create_users(config: dict, file_name_idx):
         psql_cmd_string += f"\tGRANT       {user['role']} TO {user['name']};\n"
         psql_cmd_string += f"\tALTER ROLE  {user['name']} WITH LOGIN PASSWORD '{user['password']}';\n"
     psql_cmd_string += close_psql_query()
-    with open(f"{POSTGRES_SCRIPTS_PATH}/{file_name_idx}_init-users.sh", "w") as f:
+    with open(f"{POSTGRES_SCRIPTS_PATH}/{str(file_name_idx).zfill(4)}_init-users.sh", "w") as f:
         f.write(psql_cmd_string)
     print("Write user scripts")
 
@@ -91,7 +91,7 @@ def create_dbs(dbs_config: dict, file_name_idx):
         psql_cmd_string = start_psql_query()
         psql_cmd_string += f"\tCREATE DATABASE {db['name']} WITH OWNER {db['owner']};\n"
         psql_cmd_string += close_psql_query()
-        with open(f"{POSTGRES_SCRIPTS_PATH}/{file_name_idx+i}_init-db-{db['name']}.sh", "w", encoding="utf-8") as f:
+        with open(f"{POSTGRES_SCRIPTS_PATH}/{str(file_name_idx+i).zfill(4)}_init-db-{db['name']}.sh", "w", encoding="utf-8") as f:
             f.write(psql_cmd_string)
         print("Write db scripts for ", db["name"])
 
@@ -101,7 +101,7 @@ def create_schemas(dbs_config: dict, file_name_idx):
         for schema in db["schemas"]:
             psql_cmd_string += f"\tCREATE SCHEMA IF NOT EXISTS {schema['name']};\n"
         psql_cmd_string += close_psql_query()
-        with open(f"{POSTGRES_SCRIPTS_PATH}/{file_name_idx+i}_init-schemas-{db['name']}.sh", "w", encoding="utf-8") as f:
+        with open(f"{POSTGRES_SCRIPTS_PATH}/{str(file_name_idx+i).zfill(4)}_init-schemas-{db['name']}.sh", "w", encoding="utf-8") as f:
             f.write(psql_cmd_string)
         print("Write schema scripts for ", db["name"])
 
@@ -124,7 +124,7 @@ def grant_authorization_to_roles(dbs_config: dict, file_name_idx):
                 psql_cmd_string += f"\tGRANT DELETE ON ALL TABLES IN SCHEMA {schema} TO {role};\n"
                 psql_cmd_string += f"\tGRANT ALL ON SCHEMA {schema} TO {db['owner']};\n"
         psql_cmd_string += close_psql_query()
-        with open(f"{POSTGRES_SCRIPTS_PATH}/{file_name_idx+i}_init-authorization-{db['name']}.sh", "w", encoding="utf-8") as f:
+        with open(f"{POSTGRES_SCRIPTS_PATH}/{str(file_name_idx+i).zfill(4)}_init-authorization-{db['name']}.sh", "w", encoding="utf-8") as f:
             f.write(psql_cmd_string)
         print("Write authorization scripts for", db["name"])
 
